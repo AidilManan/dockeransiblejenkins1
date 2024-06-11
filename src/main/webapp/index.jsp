@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Basic Web Application</title>
+    <title>Custom Web Application</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f0fe;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -14,31 +14,34 @@
             margin: 0;
         }
         .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 300px;
         }
         h2 {
-            color: red;
+            color: #003366;
         }
-        input[type="text"] {
+        input[type="text"], input[type="number"] {
             padding: 10px;
             margin: 10px 0;
-            width: 80%;
+            width: 90%;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
         #greeting {
             margin-top: 20px;
@@ -49,20 +52,22 @@
 </head>
 <body>
     <div class="container">
-        <h2>Deployed using Jenkins, Ansible!!</h2>
-        <form id="nameForm">
-            <input type="text" id="nameInput" placeholder="Enter your name" required>
+        <h2>Welcome to Our Web App!</h2>
+        <form id="userForm">
+            <input type="text" id="usernameInput" placeholder="Enter your username" required>
+            <input type="number" id="idInput" placeholder="Enter your ID" required>
             <br>
             <button type="submit">Submit</button>
         </form>
         <div id="greeting"></div>
     </div>
     <script>
-        document.getElementById('nameForm').addEventListener('submit', function(event) {
+        document.getElementById('userForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            var name = document.getElementById('nameInput').value;
+            var username = document.getElementById('usernameInput').value;
+            var id = document.getElementById('idInput').value;
             var greetingDiv = document.getElementById('greeting');
-            greetingDiv.textContent = 'Hello, ' + name + '! Welcome to our basic web application.';
+            greetingDiv.textContent = 'Hello, ' + username + ' (ID: ' + id + ')! Welcome to our custom web application.';
         });
     </script>
 </body>
